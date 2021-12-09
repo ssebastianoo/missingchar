@@ -91,7 +91,7 @@
     "yauzl": "^2.10.0"
   },
   "scripts": {
-    "start": "electron-forge start",
+    "start": "electron .",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -110,7 +110,9 @@
   "homepage": "https://github.com/ssebastianoo/missingchar#readme",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+	"icon": "assets/logo.ico"
+	},
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",

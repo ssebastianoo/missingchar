@@ -14,6 +14,7 @@ const createWindow = () => {
             contextIsolation: false,
         },
     });
+    win.setAlwaysOnTop(true, 'screen');
     win.loadFile('index.html');
 }
 
