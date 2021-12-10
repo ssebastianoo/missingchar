@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://kit.fontawesome.com;">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" value="#b0f06c">
         <meta name="description" content="a quick way to copy missing characters on a keyboard">
         <meta name="author" content="ssebastianoo">
         <meta property="og:title" content="missingchar" />
         <meta property="og:description" content="a quick way to copy missing characters on a keyboard" />
-        <meta property="og:image" content="assets/logo.ico" />
+        <meta property="og:image" content="../assets/logo.ico" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://seba.gq/missingchar" />
         <meta property="og:site_name" content="missing char" />
@@ -19,14 +20,23 @@
         <meta name="twitter:creator" content="@ssebastianoo" />
         <meta name="twitter:title" content="missing char" />
         <meta name="twitter:description" content="a quick way to copy missing characters on a keyboard" />
-        <meta name="twitter:image" content="assets/logo.png" />
+        <meta name="twitter:image" content="../assets/logo.png" />
         <title>missing char</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="assets/logo.ico">
+        <link rel="stylesheet" href="../assets/style.css">
+        <link rel="icon" href="../assets/logo.ico">
+        <script src="https://kit.fontawesome.com/2cd6389f66.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div class="topBar">
+            <a href="./settings.html" class="option settings-btn"><i class="fas fa-cog"></i></a>
+            <div class="options">   
+                <span class="option" id="minimize"><i class="fas fa-window-minimize"></i></span>
+                <span class="option" id="maximize"><i class="fas fa-expand"></i></span>
+                <span class="option" id="close"><i class="fas fa-times"></i></span>
+            </div>
+        </div>
         <div class="alert hidden" id="copiedAlert">
-            <h1><span>copied!</span></h1>
+            <h2><span>copied!</span></h2>
         </div>
         <div class="chars">
             <div class="char">
@@ -45,6 +55,8 @@
                 <a>ú</a>
             </div>
         </div>
-        <script src="script.js"></script>
+        <script src="../assets/settings.js"></script>
+        <script src="../assets/script.js"></script>
+        <script src="../assets/menu.js"></script>
     </body>
 </html>
