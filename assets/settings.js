@@ -3,8 +3,6 @@ const path = require('path');
 const fs = require('fs');
 let color = document.getElementById('color');
 
-console.log(__dirname)
-
 function updateJson() {
     fs.writeFile(path.join(__dirname, '../settings.json'), JSON.stringify(settings), function writeJSON(err) {
         if (err) return console.log(err);
