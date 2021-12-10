@@ -15,13 +15,13 @@ const createWindow = () => {
         },
     });
     win.setAlwaysOnTop(true, 'screen');
-    win.loadFile('index.html');
+    win.loadFile(path.join(__dirname, 'views', 'index.html'));
 }
 
 app.whenReady().then(() => {
     createWindow();
     app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow();1
+        if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });
 });
 
