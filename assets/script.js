@@ -14,9 +14,9 @@ for (i=0; i<chars.length; i++) {
             textarea.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(textarea.value);
             textarea.remove();
-            copiedAlert.classList.remove('hidden');
+            /* copiedAlert.classList.remove('hidden');
             await timeout(700);
-            copiedAlert.classList.add('hidden');
+            copiedAlert.classList.add('hidden'); */
         });
 }
 
