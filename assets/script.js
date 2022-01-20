@@ -1,22 +1,27 @@
 let chars = document.getElementsByClassName('char');
+let shortcuts = {}
+for (item of chars){
+    shortcuts[item.getAttribute("key-shortcut")] = item
+}
 let copiedAlert = document.getElementById('copiedAlert');
 
 async function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
+async function copy(text) {
+    let textarea = document.createElement('textarea');
+    textarea.select();
+    textarea.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(text);
+    document.body.appendChild(textarea);
+    textarea.remove();
+
+}
+
 for (i=0; i<chars.length; i++) {
         chars[i].addEventListener('click', async (e) => {
-            let textarea = document.createElement('textarea');
-            textarea.value = e.target.innerText;
-            document.body.appendChild(textarea);
-            textarea.select();
-            textarea.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(textarea.value);
-            textarea.remove();
-            /* copiedAlert.classList.remove('hidden');
-            await timeout(700);
-            copiedAlert.classList.add('hidden'); */
+            copy(e.target.innerText);
         });
 }
 
@@ -25,6 +30,9 @@ document.addEventListener('keydown', async (e) => {
         for (i=0; i<chars.length; i++) {
             chars[i].children[0].innerText = chars[i].children[0].innerText.toUpperCase();
         }
+    }
+    if(e.key.toLowerCase() in shortcuts){
+        copy(shortcuts[e.key.toLowerCase()].innerText);
     }
 });
 
