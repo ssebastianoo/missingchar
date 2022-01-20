@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
 const path = require('path');
 let win;
 
@@ -25,6 +25,14 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });
+
+  const ret = globalShortcut.register('Ctrl+alt+.', () => {
+    if(win.isFocused()){
+        win.hide()
+    }else{
+        win.show()
+    }
+  })
 });
 
 app.on('window-all-closed', () => {
@@ -50,3 +58,8 @@ ipcMain.on('options-action', function (event, arg) {
             break;
     }
 });
+
+
+app.on('will-quit', () => {
+    globalShortcut.unregisterAll()
+  })
