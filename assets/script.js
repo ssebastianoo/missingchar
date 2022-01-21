@@ -31,7 +31,8 @@ document.addEventListener('keydown', async (e) => {
             chars[i].children[0].innerText = chars[i].children[0].innerText.toUpperCase();
         }
     }
-    if(e.key.toLowerCase() in shortcuts){
+    if (e.key.toLowerCase() in shortcuts) {
+        document.querySelector(`.char[key-shortcut="${e.key.toLowerCase()}"]`).firstElementChild.classList.add('active');
         copy(shortcuts[e.key.toLowerCase()].innerText);
     }
 });
@@ -41,5 +42,8 @@ document.addEventListener('keyup', async (e) => {
         for (i=0; i<chars.length; i++) {
             chars[i].children[0].innerText = chars[i].children[0].innerText.toLowerCase();
         }
+    }
+    if (e.key.toLowerCase() in shortcuts) {
+        document.querySelector(`.char[key-shortcut="${e.key.toLowerCase()}"]`).firstElementChild.classList.remove('active');
     }
 });
