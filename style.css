@@ -1,0 +1,76 @@
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: "Courier New";
+  background-color: rgb(24, 23, 23);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+}
+
+.chars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 25px;
+}
+.chars .char {
+  background-color: #b0f06c;
+  width: 120px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 10px #6a963b;
+  cursor: pointer;
+}
+.chars .char p {
+  font-size: 60px;
+}
+.chars .char:active {
+  transform: translateY(5px);
+  box-shadow: 0px 5px #6a963b;
+  background-color: #9fdb5e;
+}
+
+#copied {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#copied p {
+  background-color: #b0f06c;
+  border-radius: 2px;
+  padding: 8px;
+  box-shadow: 0px 5px #6a963b;
+}
+
+@media (max-width: 768px) and (min-width: 534px) {
+  .chars .char {
+    width: 80px;
+    height: 65px;
+  }
+  .chars .char p {
+    font-size: 40px;
+  }
+}
+@media (max-width: 533px) {
+  .chars {
+    flex-direction: column;
+    gap: 40px;
+  }
+}/*# sourceMappingURL=style.css.map */
